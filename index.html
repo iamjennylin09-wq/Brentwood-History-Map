@@ -49,7 +49,7 @@
 
 <header>
   <h1>Hidden Histories: Nashville to Brentwood</h1>
-  <p>From historic landmarks to modern gathering places</p>
+  <p>Tracing the past through places that shaped Middle Tennessee</p>
 </header>
 
 <div id="map"></div>
@@ -58,7 +58,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-  // Initialize map centered between Nashville & Brentwood
+  // Initialize map
   const map = L.map('map').setView([36.020, -86.780], 11);
 
   // Map tiles
@@ -66,52 +66,52 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // Locations
+  // Locations with historical descriptions
   const locations = [
     {
       name: "Boiling Spring Academy",
       coords: [35.9959, -86.7897],
-      description: "Founded in 1832, this historic academy played a major role in early Brentwood education."
+      description: "Founded in 1832, Boiling Spring Academy was one of the earliest educational institutions in Brentwood. It served as a school for local children and played a key role in shaping early community life. During the Civil War, the building was reportedly used as a hospital for wounded soldiers. Today, it stands as a reminder of Brentwood’s educational and wartime past."
     },
     {
       name: "Ravenswood Mansion",
       coords: [36.0115, -86.8021],
-      description: "A historic plantation mansion tied to Civil War history and local legends."
+      description: "Built in 1820, Ravenswood Mansion was once the center of a large plantation and witnessed significant Civil War activity. Union troops occupied the property, leaving behind documented graffiti still visible today. The mansion reflects both the prosperity and the hardships of 19th-century Middle Tennessee. It remains one of Brentwood’s most historically significant landmarks."
     },
     {
       name: "Crockett Park",
       coords: [35.9843, -86.7899],
-      description: "Named after the Crockett family, blending recreation with early Middle Tennessee history."
+      description: "Crockett Park is named after the Crockett family, early settlers with deep roots in Tennessee history. While now a recreational space, the land was once farmland tied to the region’s agricultural economy. The park represents how Brentwood transitioned from rural land to a suburban community. Its name preserves the memory of early pioneers."
     },
     {
       name: "Marcella Vivrette Smith Park",
       coords: [35.9828, -86.8065],
-      description: "Preserved farmland and home of the Brentwood Library, connecting past and present."
+      description: "This park preserves land that once functioned as working farmland in Williamson County. It highlights Brentwood’s agricultural past before widespread development. The park also houses the Brentwood Library, symbolizing a blend of preservation and progress. It reflects the community’s effort to honor history while embracing growth."
     },
     {
       name: "Grand Ole Opry",
       coords: [36.2081, -86.6929],
-      description: "A legendary music venue that shaped country music and Nashville’s identity."
+      description: "The Grand Ole Opry began in 1925 as a radio broadcast and quickly became a cornerstone of country music. It helped launch the careers of countless musicians and solidified Nashville’s identity as Music City. The venue represents cultural history rather than physical age. Its influence reaches far beyond Tennessee."
     },
     {
       name: "Country Music Hall of Fame",
       coords: [36.1582, -86.7765],
-      description: "A museum honoring artists who defined country music and Nashville’s cultural legacy."
+      description: "Opened in 1967, the Country Music Hall of Fame preserves the legacy of artists who shaped American music. The museum documents how Nashville became a global music hub. It connects storytelling, sound, and history under one roof. The building serves as both an archive and a cultural landmark."
     },
     {
       name: "Brentwood Skate Center",
       coords: [35.9969, -86.7895],
-      description: "A longtime local hangout representing modern Brentwood youth culture."
+      description: "The Brentwood Skate Center has long been a popular gathering place for local youth. While not historically old, it represents social history and community life. Spaces like this show how culture evolves beyond historic buildings. It reflects modern traditions passed through generations."
     },
     {
       name: "Sky Zone Brentwood",
       coords: [35.9686, -86.8082],
-      description: "A modern entertainment space reflecting Brentwood’s growth and suburban culture."
+      description: "Sky Zone reflects the modern development and entertainment culture of Brentwood. As the city expanded, spaces like this emerged to serve growing families. Though recent, it represents a shift in how communities gather. It contrasts sharply with Brentwood’s rural origins."
     },
     {
       name: "CoolSprings Galleria",
       coords: [35.9550, -86.8162],
-      description: "A major shopping hub symbolizing the economic expansion of the Brentwood area."
+      description: "Opened in 1991, CoolSprings Galleria marked a major economic shift for the area. The mall symbolized rapid suburban growth and commercial development. It transformed Brentwood into a regional shopping destination. The site reflects how modern infrastructure reshaped local identity."
     }
   ];
 
@@ -120,7 +120,7 @@
     L.marker(place.coords)
       .addTo(map)
       .bindPopup(
-        `<strong>${place.name}</strong><br>${place.description}`
+        `<strong>${place.name}</strong><br><p>${place.description}</p>`
       );
   });
 </script>
