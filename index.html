@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hidden Histories: Nashville to Brentwood</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Libre Baskerville', serif;
+      background-color: #f3efe6;
+      color: #2b2b2b;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px;
+      background-color: #e6ddc4;
+      border-bottom: 2px solid #bfae8e;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.3rem;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    #map {
+      height: 85vh;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Hidden Histories: Nashville to Brentwood</h1>
+  <p>From historic landmarks to modern gathering places</p>
+</header>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Initialize map centered between Nashville & Brentwood
+  const map = L.map('map').setView([36.020, -86.780], 11);
+
+  // Map tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Locations
+  const locations = [
+    {
+      name: "Boiling Spring Academy",
+      coords: [35.9959, -86.7897],
+      description: "Founded in 1832, this historic academy played a major role in early Brentwood education."
+    },
+    {
+      name: "Ravenswood Mansion",
+      coords: [36.0115, -86.8021],
+      description: "A historic plantation mansion tied to Civil War history and local legends."
+    },
+    {
+      name: "Crockett Park",
+      coords: [35.9843, -86.7899],
+      description: "Named after the Crockett family, blending recreation with early Middle Tennessee history."
+    },
+    {
+      name: "Marcella Vivrette Smith Park",
+      coords: [35.9828, -86.8065],
+      description: "Preserved farmland and home of the Brentwood Library, connecting past and present."
+    },
+    {
+      name: "Grand Ole Opry",
+      coords: [36.2081, -86.6929],
+      description: "A legendary music venue that shaped country music and Nashville’s identity."
+    },
+    {
+      name: "Country Music Hall of Fame",
+      coords: [36.1582, -86.7765],
+      description: "A museum honoring artists who defined country music and Nashville’s cultural legacy."
+    },
+    {
+      name: "Brentwood Skate Center",
+      coords: [35.9969, -86.7895],
+      description: "A longtime local hangout representing modern Brentwood youth culture."
+    },
+    {
+      name: "Sky Zone Brentwood",
+      coords: [35.9686, -86.8082],
+      description: "A modern entertainment space reflecting Brentwood’s growth and suburban culture."
+    },
+    {
+      name: "CoolSprings Galleria",
+      coords: [35.9550, -86.8162],
+      description: "A major shopping hub symbolizing the economic expansion of the Brentwood area."
+    }
+  ];
+
+  // Add markers
+  locations.forEach(place => {
+    L.marker(place.coords)
+      .addTo(map)
+      .bindPopup(
+        `<strong>${place.name}</strong><br>${place.description}`
+      );
+  });
+</script>
+
+</body>
+</html>
